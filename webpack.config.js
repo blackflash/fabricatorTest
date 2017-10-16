@@ -7,11 +7,11 @@ const webpack = require('webpack');
  * @param {boolean} isDev If in development mode
  * @return {Array}
  */
-function getPlugins(isDev) {
+function getPlugins (isDev) {
 
   const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({}),
+    new webpack.DefinePlugin({})
   ];
 
   if (isDev) {
@@ -22,8 +22,8 @@ function getPlugins(isDev) {
       minimize: true,
       sourceMap: false,
       compress: {
-        warnings: false,
-      },
+        warnings: false
+      }
     }));
   }
 

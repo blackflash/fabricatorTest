@@ -1,0 +1,4 @@
+src/assets/fabricator/scripts/prism.js
+dist/*
+node_modules/*
+**/node_modules/*

@@ -15,20 +15,14 @@ fabricator.options = {
   toggles: {
     labels: true,
     notes: true,
-    code: false,
+    code: false
   },
   menu: false,
-  mq: '(min-width: 60em)',
+  mq: '(min-width: 60em)'
 };
 
 // open menu by default if large screen
 fabricator.options.menu = window.matchMedia(fabricator.options.mq).matches;
-
-/**
- * Feature detection
- * @type {Object}
- */
-fabricator.test = {};
 
 // test for sessionStorage
 fabricator.test.sessionStorage = (() => {
@@ -56,7 +50,7 @@ fabricator.dom = {
   root: document.querySelector('html'),
   primaryMenu: document.querySelector('.f-menu'),
   menuItems: document.querySelectorAll('.f-menu li a'),
-  menuToggle: document.querySelector('.f-menu-toggle'),
+  menuToggle: document.querySelector('.f-menu-toggle')
 };
 
 
@@ -68,10 +62,6 @@ fabricator.getOptions = () => {
   return (fabricator.test.sessionStorage) ? JSON.parse(sessionStorage.fabricator) : fabricator.options;
 };
 
-
-/**
- * Build color chips
- */
 fabricator.buildColorChips = () => {
 
   const chips = document.querySelectorAll('.f-color-chip');
@@ -99,7 +89,7 @@ fabricator.setActiveItem = () => {
 
     // get current file and hash without first slash
     const loc = (window.location.pathname + window.location.hash);
-    const current = loc.replace(/(^\/)([^#]+)?(#[\w\-\.]+)?$/ig, (match, slash, file, hash) => {
+    const current = loc.replace(/(^\/)([^#]+)?(#[\w\-.]+)?$/ig, (match, slash, file, hash) => {
       return (file || '') + (hash || '').split('.')[0];
     }) || 'index.html';
 
@@ -188,7 +178,7 @@ fabricator.allItemsToggles = () => {
   const itemCache = {
     labels: document.querySelectorAll('[data-f-toggle="labels"]'),
     notes: document.querySelectorAll('[data-f-toggle="notes"]'),
-    code: document.querySelectorAll('[data-f-toggle="code"]'),
+    code: document.querySelectorAll('[data-f-toggle="code"]')
   };
 
   const toggleAllControls = document.querySelectorAll('.f-controls [data-f-toggle-control]');
